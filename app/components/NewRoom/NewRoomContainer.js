@@ -25,7 +25,7 @@ class NewRoomContainer extends React.Component {
       isLoading: true,
       isSubmitted: false,
       goToId: "",
-      rooms: {},
+      rooms: [],
       nameInput: ""
     };
     this.handleChange = this.handleChange.bind(this);
@@ -48,7 +48,7 @@ class NewRoomContainer extends React.Component {
   }
   componentWillUnmount () {
     console.log("componentWillUnmount");
-
+    debugger;
   }
   handleChange (e) {
     e.preventDefault();
@@ -56,6 +56,7 @@ class NewRoomContainer extends React.Component {
   }
   handleSubmit (e) {
     e.preventDefault();
+    debugger;
     const homeId = this.props.match.params.homeId;
     const name = this.state.nameInput;
     httpHelper.createRoom(homeId, {name:name})

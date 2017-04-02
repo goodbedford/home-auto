@@ -26,7 +26,7 @@ const NewRoom = (props) => {
   }
   if(props.isSubmitted && props.goToId) {
     // debugger;
-    return <Redirect to={`/homes/${props.homeId}/rooms/${props.goToId}`} />;
+    // return <Redirect to={`/homes/${props.homeId}/rooms/${props.goToId}`} />;
   }
   return (
     <form
