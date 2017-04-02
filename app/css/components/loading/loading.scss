@@ -1,0 +1,17 @@
+.loading {
+  align-items: center;
+  background-color: $color-black-pure;
+
+  // background: linear-gradient($color-gray-lt, $color-gray-md, $color-black-pure);
+  color: $color-downy;
+  display: flex;
+  font-size: 36px;
+  font-weight: bold;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.loading--block-md {
+  height: 60vh;
+}

@@ -1,0 +1,52 @@
+/* form */
+
+/*-------------------------------------------------------*/
+
+.form {}
+
+.form__group {
+  /*margin: 10px 0;*/
+}
+
+.form__group--bottom {
+  bottom: 0;
+  position: absolute;
+}
+
+.form__header {
+  align-items: center;
+  border-top: 1px solid $color-black-pure;
+  border-bottom: 1px solid $color-black-pure;
+  color: $color-downy;
+  display: flex;
+  flex: 1;
+  font-size: 24px;
+  justify-content: center;
+  padding: 10px;
+  text-transform: uppercase;
+  transition: 0.3s background-color;
+}
+
+.form__input {
+  background-color: $color-gray-md;
+  border: 1px solid $color-downy;
+  color: $color-downy;
+  font-size: 18px;
+  padding: 10px;
+  width: 100%;
+}
+
+.form__label {
+  color: $color-downy;
+  display: block;
+  font-size: 20px;
+  margin: 0 0 10px 0;
+}
+
+.form__section {}
+
+.form__section--main {
+  max-height: 200px;
+  overflow: scroll;
+  padding: 20px;
+}

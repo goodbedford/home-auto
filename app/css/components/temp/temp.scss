@@ -1,0 +1,72 @@
+/*temp*/
+
+/*-------------------------------------------------------*/
+
+.temp {
+  display: block;
+  height: 150px;
+
+  /*padding: 20px;*/
+  width: 150px;
+}
+
+.temp--center {
+  margin: 20px auto;
+}
+
+.temp__input {
+  border: 2px solid $color-black-pure;
+  font-size: 50px;
+  padding: 10px;
+  text-indent: 25%;
+  width: 60%;
+}
+
+.temp__section {
+  align-items: center;
+  border: 1px solid $color-black-pure;
+  display: flex;
+
+  /*flex: 1;*/
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  width: 75%;
+}
+
+.temp__section--bg-black {
+  background-color: $color-black-pure;
+}
+
+.temp__section-flex {
+  border-radius: 50%;
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+}
+
+.temp__section-flex--temp-control {
+  border: 10px solid $color-black-pure;
+  box-shadow: 0 0 0 2px $color-downy;
+  position: relative;
+}
+
+.temp__text {
+  color: $color-downy;
+  font-size: 50px;
+  position: relative;
+}
+
+.temp__text:after {
+  color: inherit;
+  content: "o";
+  font-size: 25px;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  z-index: 20;
+}
+
+.temp__text--silver {
+  color: $color-gray-lt;
+}

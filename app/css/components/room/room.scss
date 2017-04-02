@@ -1,0 +1,29 @@
+/*room*/
+
+/*-------------------------------------------------------*/
+
+.room {}
+
+.room__controls {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.room__header {
+  align-items: center;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  color: rgb(100, 200, 200);
+  display: flex;
+  flex: 1;
+  font-size: 24px;
+  justify-content: center;
+  padding: 10px;
+  text-transform: uppercase;
+  transition: 0.3s background-color;
+}
+
+.room__section {
+  display: block;
+}

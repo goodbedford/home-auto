@@ -1,0 +1,17 @@
+/*base*/
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover, &:active, &:visited, :focus {
+    text-decoration: none;
+  }
+}
