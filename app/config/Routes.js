@@ -27,7 +27,7 @@ const Routes =  (
         <Route exact path="/" component={WelcomeContainer} />
         <Route exact path="/homes" component={HomeAutomationContainer} />
         <Route exact path="/homes/:homeId/rooms" component={HomeDetails} />
-        <Route exact path="/homes/:homeId/rooms/new" component={NewRoomContainer} />
+        {/* <Route exact path="/homes/:homeId/rooms/new" component={NewRoomContainer} /> */}
         <Route exact path="/homes/:homeId/rooms/:roomId" component={RoomDetails} />
       </Switch>
     </div>

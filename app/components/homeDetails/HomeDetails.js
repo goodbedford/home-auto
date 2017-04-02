@@ -23,8 +23,13 @@ class HomeDetails extends React.Component {
     super(props);
     this.state = {
       isLoading: true,
-      rooms: {}
+      rooms: {},
+      isSubmitted: false,
+      goToId: "",
+      nameInput: ""
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount () {
     let homeId = this.props.match.params.homeId;
@@ -38,6 +43,22 @@ class HomeDetails extends React.Component {
       })
       .catch(error => {
         console.warn("Error with getHomes", error);
+      });
+  }
+  handleChange (e) {
+    e.preventDefault();
+    this.setState({nameInput: e.target.value});
+  }
+  handleSubmit (e) {
+    e.preventDefault();
+    const homeId = this.props.match.params.homeId;
+    const name = this.state.nameInput;
+    httpHelper.createRoom(homeId, {name:name})
+      .then(newRoom => {
+        this.setState({isSubmitted: true, goToId: newRoom._id});
+      })
+      .catch(error => {
+        console.log("Error with submit new room", error);
       });
   }
   render() {
@@ -60,9 +81,21 @@ class HomeDetails extends React.Component {
           </PanelNav>
           <PanelDetails>
             <Switch>
-              <Route path="/homes/:homeId/rooms" component={() => {
+              <Route exact path="/homes/:homeId/rooms" component={() => {
                 return (
                   <PanelBlock msg="Select a Room" />
+                );
+              }}/>
+              <Route path="/homes/:homeId/rooms/new" component={() => {
+                return (
+                  <NewRoom
+                    goToId={this.state.goToId}
+                    homeId={this.props.match.params.homeId}
+                    isLoading={this.state.isLoading}
+                    isSubmitted={this.state.isSubmitted}
+                    handleChange={this.handleChange}
+                    handleSubmit={this.handleSubmit}
+                  />
                 );
               }}/>
               {/* <Route exact path="/homes/:homeId/rooms/new" component={NewRoom} /> */}
