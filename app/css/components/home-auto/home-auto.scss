@@ -30,6 +30,16 @@
   padding: 0 20px;
 }
 
+.home-auto__panel-block {
+  align-items: center;
+  color: $color-downy;
+  display: flex;
+  font-size: $txt-lg;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
 .home-auto__panel-controls {
   background-color: rgb(47, 47, 47);
   border: 1px solid black;
@@ -38,6 +48,11 @@
 
   /*padding: 20px;*/
   position: relative;
+}
+
+.home-auto__panel-edit-button {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .home-auto__panel-header {
@@ -87,14 +102,15 @@
   color: rgb(100, 200, 200);
 }
 
-.home-auto__panel-block {
-  align-items: center;
-  color: $color-downy;
+.home-auto__panel-item--edit-btn {
+  border-left: 1px solid black;
+  flex: 0 0;
+  justify-content: flex-end;
+}
+
+.home-auto__panel-group {
   display: flex;
-  font-size: $txt-lg;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
+  justify-content: space-between;
 }
 
 .home-auto__panel-rooms {

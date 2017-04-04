@@ -70,6 +70,9 @@ class HomeDetails extends React.Component {
         </HomeAutomation>
       );
     }
+    if(this.props.match.roomId) {
+      return <Redirect to={this.props.match.roomId} />
+    }
 
     return (
       <HomeAutomation>
@@ -89,38 +92,18 @@ class HomeDetails extends React.Component {
               <Route exact path="/homes/:homeId/rooms/new" render={() => {
                 return (
                   <NewRoom
+                    formMsg="Add Room"
                     goToId={this.state.goToId}
                     homeId={this.props.match.params.homeId}
                     isLoading={this.state.isLoading}
                     isSubmitted={this.state.isSubmitted}
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}
+                    nameInput={this.state.nameInput}
                   />
                 );
               }}/>
-              <Route exact path="/homes/:homeId/rooms/:roomId/edit" render={() => {
-                return (
-                  <div> edit form</div>
-                  // <NewRoom
-                  //   goToId={this.state.goToId}
-                  //   homeId={this.props.match.params.homeId}
-                  //   isLoading={this.state.isLoading}
-                  //   isSubmitted={this.state.isSubmitted}
-                  //   handleChange={this.handleChange}
-                  //   handleSubmit={this.handleSubmit}
-                  // />
-                );
-              }}/>
-
             </Switch>
-
-            {/* <Route exact path="/homes/:homeId/rooms/:roomId" component={(props) => {
-              let roomId = props.match.params.roomId;
-              let room = this.state.rooms.filter(room => room._id === roomId)[0];
-              return (
-                <RoomDetails room={room} match={this.props.match} />
-              );
-            }}/> */}
           </PanelDetails>
         </HomeSection>
       </HomeAutomation>

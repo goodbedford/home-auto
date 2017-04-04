@@ -23,16 +23,15 @@ const Routes =  (
   <Router>
     <div>
       {/* <Nav /> */}
-      {/* <Switch> */}
         <Route exact path="/" component={WelcomeContainer} />
         <Route exact path="/homes" component={HomeAutomationContainer} />
-        <Route  exact path="/homes/:homeId/rooms" component={HomeDetails} />
+        <Route exact path="/homes/:homeId/rooms" component={HomeDetails} />
         <Switch>
-          <Route exact path="/homes/:homeId/rooms/new" component={HomeDetails} />
-          <Route exact path="/homes/:homeId/rooms/:roomId" component={RoomDetails} />
-        </Switch>
+        <Route exact path="/homes/:homeId/rooms/:roomId/edit" component={RoomDetails} />
+        <Route exact path="/homes/:homeId/rooms/new" component={HomeDetails} />
+        <Route exact path="/homes/:homeId/rooms/:roomId" component={RoomDetails} />
         {/* <Route exact path="/homes/:homeId/rooms/new" component={NewRoomContainer} /> */}
-      {/* </Switch> */}
+      </Switch>
     </div>
   </Router>
 );

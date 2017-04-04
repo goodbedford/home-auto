@@ -1,5 +1,5 @@
 import React from "react";
-import {Route, NavLink} from "react-router-dom";
+import {Route,Link, NavLink} from "react-router-dom";
 import Button from "../button/button";
 
 const PropTypes = React.PropTypes;
@@ -21,16 +21,24 @@ const PanelItem = (props) => {
     let stateItems = getRoomNav(items);
     if(props.match.params.roomId) {
       return (
+        <div className="home-auto__panel-group">
         <NavLink
           onClick={props.handleGetRoomClick(props.match.params.homeId, item._id)}
           exact
           to={{
-            pathname:`/homes/${props.match.params.homeId}/rooms/${item._id}`,
-            state: {rooms: stateItems}
+            pathname:`/homes/${props.match.params.homeId}/rooms/${item._id}`
           }}
           key={item._id}
-          className="home-auto__panel-item">{item.name}
+          className="home-auto__panel-item">
+          <span>{item.name}</span>
         </NavLink>
+        <Link
+          onClick={props.handleGetRoomClick(props.match.params.homeId, item._id)}
+          to={`/homes/${props.match.params.homeId}/rooms/${item._id}/edit`}
+          className="home-auto__panel-item home-auto__panel-item--edit-btn">
+          <span key={item._id + 1}>edit</span>
+        </Link>
+      </div>
       );
     }
     if(props.match.params.homeId) {
@@ -39,21 +47,18 @@ const PanelItem = (props) => {
           exact
           to={{
             pathname: `/homes/${props.match.params.homeId}/rooms/${item._id}`,
-            state: {rooms: stateItems}
           }}
           key={item._id}
-          className="home-auto__panel-item">{item.name}
+          className="home-auto__panel-item"><span>{item.name}</span>
         </NavLink>
       );
     }
     return (
       <NavLink
         exact
-        to={{
-          pathname: `/homes/${item._id}/rooms`,
-        }}
+        to= {`/homes/${item._id}/rooms`}
         key={item._id}
-        className="home-auto__panel-item">{item.name}
+        className="home-auto__panel-item"><span>{item.name}</span>
       </NavLink>
     );
   });

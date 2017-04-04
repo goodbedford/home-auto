@@ -9,6 +9,7 @@ import PanelDetails from "../panelDetails/PanelDetails.js";
 import PanelControls from "../panelControls/PanelControls.js";
 import PanelRoomControls from "../panelRoomControls/PanelRoomControls.js";
 import PanelBlock from "../panelBlock/PanelBlock.js";
+import NewRoom from "../newRoom/NewRoom.js";
 import Loading from "../loading/Loading.js";
 import httpHelper from "../../utils/httpHelper.js";
 
@@ -22,18 +23,22 @@ class RoomDetails extends React.Component {
     super(props);
     // const rooms = this.props.location.state.rooms;
     this.state = {
-      isLoading: true,
+      goToId: "",
+      isLoading: false,
+      isSubmitted: false,
       rooms: [],
-      room: {}
+      room: {},
+      nameInput: "",
     };
     this.handleGetRoomClick = this.handleGetRoomClick.bind(this);
     this.handleTempIncrease = this.handleTempIncrease.bind(this);
     this.handleTempDecrease = this.handleTempDecrease.bind(this);
     this.toggleDevice = this.toggleDevice.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount () {
     console.log("componentDidMount", new Date());
-
     let homeId = this.props.match.params.homeId;
     let roomId = this.props.match.params.roomId;
     httpHelper.getRooms(homeId)
@@ -51,7 +56,8 @@ class RoomDetails extends React.Component {
         console.log("room", JSON.stringify(room, null, 2));
         this.setState({
           isLoading: false,
-          room: room
+          room: room,
+          nameInput: room.name
         });
       })
       .catch(error => {
@@ -64,6 +70,9 @@ class RoomDetails extends React.Component {
   }
   componentDidUpdate () {
     console.log("componentDidUpdate", new Date());
+    if(this.state.isSubmitted && this.state.goToId) {
+      this.setState({isSubmitted: false, gotToId: "" });
+    }
   }
   componentWillReceiveProps () {
     console.log("componentWillReceiveProps", new Date());
@@ -78,7 +87,8 @@ class RoomDetails extends React.Component {
           // console.log("room", JSON.stringify(room, null, 2));
           this.setState({
             isLoading: false,
-            room: room
+            room: room,
+            nameInput: room.name
           });
         })
         .catch(error => {
@@ -147,9 +157,34 @@ class RoomDetails extends React.Component {
         });
     };
   }
-
-  handleNewRoomClick () {
-
+  handleChange (e) {
+    e.preventDefault();
+    this.setState({nameInput: e.target.value});
+  }
+  handleSubmit (e) {
+    e.preventDefault();
+    const room = this.state.room;
+    const homeId = this.props.match.params.homeId;
+    const name = this.state.nameInput;
+    const roomId = this.props.match.params.roomId;
+    room.name = name;
+    httpHelper.updateRoom(homeId, roomId, room)
+      .then(updatedRoom => {
+        this.setState({isSubmitted: true, goToId: updatedRoom._id});
+        return updatedRoom.data;
+      })
+      .then(updatedRoom => {
+        httpHelper.getRooms(homeId)
+          .then(rooms => {
+            this.setState({
+              isLoading: false,
+              rooms: rooms
+            });
+          });
+      })
+      .catch(error => {
+        console.log("Error with updateRoom", error);
+      });
   }
 
   render() {
@@ -167,19 +202,46 @@ class RoomDetails extends React.Component {
         <HeaderContainer />
         <HomeSection>
           <PanelNav>
-            <PanelControls header="Rooms" match={this.props.match} />
-            <PanelItem items={this.state.rooms} match={this.props.match} handleGetRoomClick={this.handleGetRoomClick} />;
+            <PanelControls
+              header="Rooms"
+              match={this.props.match}
+            />
+            <PanelItem
+              items={this.state.rooms}
+              match={this.props.match}
+              handleGetRoomClick={this.handleGetRoomClick}
+            />;
           </PanelNav>
           <PanelDetails>
-            <PanelRoomControls
-            curtains={this.state.room.curtains}
-            lights={this.state.room.lights}
-            name={this.state.room.name}
-            thermostat={this.state.room.thermostat}
-            handleTempIncrease={this.handleTempIncrease}
-            handleTempDecrease={this.handleTempDecrease}
-            toggleDevice={this.toggleDevice}
-           />
+            <Switch>
+            <Route exact path="/homes/:homeId/rooms/:roomId/edit" render={() => {
+              return (
+                <NewRoom
+                  formMsg="Edit Room"
+                  nameInput={this.state.nameInput}
+                  goToId={this.state.goToId}
+                  homeId={this.props.match.params.homeId}
+                  isLoading={this.state.isLoading}
+                  isSubmitted={this.state.isSubmitted}
+                  handleChange={this.handleChange}
+                  handleSubmit={this.handleSubmit}
+                />
+              );
+            }}/>
+            <Route exact path="/homes/:homeId/rooms/:roomId" render={() => {
+              return (
+                <PanelRoomControls
+                curtains={this.state.room.curtains}
+                lights={this.state.room.lights}
+                name={this.state.room.name}
+                thermostat={this.state.room.thermostat}
+                handleTempIncrease={this.handleTempIncrease}
+                handleTempDecrease={this.handleTempDecrease}
+                toggleDevice={this.toggleDevice}
+               />
+              );
+            }}/>
+            </Switch>
           </PanelDetails>
         </HomeSection>
       </HomeAutomation>

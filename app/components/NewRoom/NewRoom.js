@@ -3,6 +3,7 @@ import {Route, Redirect} from "react-router-dom";
 
 const PropTypes = React.PropTypes;
 const propTypes = {
+  formMsg: PropTypes.string.isRequired,
   goToId: PropTypes.string.isRequired,
   homeId: PropTypes.string.isRequired,
   isLoading: PropTypes.bool.isRequired,
@@ -13,7 +14,8 @@ const propTypes = {
 const defaultProps = {
   isLoading: false,
   isSubmitted: false,
-  name: "Unnamed Room"
+  name: "Unnamed Room",
+  formMsg: "form"
 };
 const NewRoom = (props) => {
   if (props.isLoading) {
@@ -25,7 +27,6 @@ const NewRoom = (props) => {
     );
   }
   if(props.isSubmitted && props.goToId) {
-    // debugger;
     return <Redirect to={`/homes/${props.homeId}/rooms/${props.goToId}`} />;
   }
   return (
@@ -34,7 +35,7 @@ const NewRoom = (props) => {
       className="form"
       onSubmit={props.handleSubmit}
     >
-      <div className="form__header">Add a room</div>
+      <div className="form__header">{props.formMsg}</div>
       <div className="form__section form__section--main">
         <div className="form_group">
           <label className="form__label">
@@ -47,6 +48,7 @@ const NewRoom = (props) => {
               placeholder="Ex. Dinning Room"
               required
               onChange={props.handleChange}
+              value={props.nameInput}
             />
           </label>
         </div>
