@@ -20,10 +20,10 @@ const defaultProps = {
 class RoomDetails extends React.Component {
   constructor(props) {
     super(props);
-    const rooms = this.props.location.state.rooms;
+    // const rooms = this.props.location.state.rooms;
     this.state = {
       isLoading: true,
-      rooms: rooms,
+      rooms: [],
       room: {}
     };
     this.handleGetRoomClick = this.handleGetRoomClick.bind(this);
@@ -36,6 +36,16 @@ class RoomDetails extends React.Component {
 
     let homeId = this.props.match.params.homeId;
     let roomId = this.props.match.params.roomId;
+    httpHelper.getRooms(homeId)
+      .then(rooms => {
+        this.setState({
+          isLoading: false,
+          rooms: rooms
+        });
+      })
+      .catch(error => {
+        console.warn("Error with getHomes", error);
+      });
     httpHelper.getRoom(homeId, roomId)
       .then(room => {
         console.log("room", JSON.stringify(room, null, 2));

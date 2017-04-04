@@ -81,12 +81,12 @@ class HomeDetails extends React.Component {
           </PanelNav>
           <PanelDetails>
             <Switch>
-              <Route exact path="/homes/:homeId/rooms" component={() => {
+              <Route exact path="/homes/:homeId/rooms" render={() => {
                 return (
                   <PanelBlock msg="Select a Room" />
                 );
               }}/>
-              <Route path="/homes/:homeId/rooms/new" component={() => {
+              <Route exact path="/homes/:homeId/rooms/new" render={() => {
                 return (
                   <NewRoom
                     goToId={this.state.goToId}
@@ -98,7 +98,20 @@ class HomeDetails extends React.Component {
                   />
                 );
               }}/>
-              {/* <Route exact path="/homes/:homeId/rooms/new" component={NewRoom} /> */}
+              <Route exact path="/homes/:homeId/rooms/:roomId/edit" render={() => {
+                return (
+                  <div> edit form</div>
+                  // <NewRoom
+                  //   goToId={this.state.goToId}
+                  //   homeId={this.props.match.params.homeId}
+                  //   isLoading={this.state.isLoading}
+                  //   isSubmitted={this.state.isSubmitted}
+                  //   handleChange={this.handleChange}
+                  //   handleSubmit={this.handleSubmit}
+                  // />
+                );
+              }}/>
+
             </Switch>
 
             {/* <Route exact path="/homes/:homeId/rooms/:roomId" component={(props) => {

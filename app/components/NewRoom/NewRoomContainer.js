@@ -25,7 +25,7 @@ class NewRoomContainer extends React.Component {
       isLoading: true,
       isSubmitted: false,
       goToId: "",
-      rooms: {},
+      rooms: [],
       nameInput: ""
     };
     this.handleChange = this.handleChange.bind(this);
