@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PanelControls /> PanelControls snapshot 1`] = `
+<div
+  className="controls controls-flex controls-flex--center-start"
+>
+  <div
+    className="controls__group controls__group--space-between controls__group--tall"
+  >
+    <NavLink
+      activeClassName="active"
+      to="/homes/12/rooms/new"
+    >
+      <span
+        className="controls__icon controls__icon--sm invisible"
+      >
+        +
+      </span>
+    </NavLink>
+    <span
+      className="controls__text controls__text-btn"
+    >
+      rooms
+    </span>
+    <div
+      className="block-tall"
+    >
+      <span
+        className="block-controls"
+      />
+    </div>
+  </div>
+</div>
+`;

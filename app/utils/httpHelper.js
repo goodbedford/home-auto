@@ -52,13 +52,23 @@ const createRoom = (homeId, room) => {
       return newRoom.data;
     });
 };
+const deleteRoom = (homeId, roomId) => {
+  return axios.delete(`${baseUrl}/${homeId}/rooms/${roomId}`)
+    .then(home => {
+      console.log("successful delete")
+    })
+    .catch(error => {
+      console.warn("Error with delete room", error);
+    });
+};
 const httpHelper = {
   getHomes: getHomes,
   getHome: getHome,
   getRooms: getRooms,
   getRoom: getRoom,
   updateRoom: updateRoom,
-  createRoom: createRoom
+  createRoom: createRoom,
+  deleteRoom: deleteRoom
 };
 
 

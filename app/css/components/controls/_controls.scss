@@ -4,7 +4,7 @@
 
 .controls {
   border: 1px solid transparent;
-  color: rgb(100, 200, 200);
+  color: $color-downy;
   height: 48px;
   padding: 0 10px;
 }
@@ -40,8 +40,8 @@
 
 .controls__icon {
   align-items: center;
-  border: 1px solid rgb(100, 200, 200);
-  color: rgb(100, 200, 200);
+  border: 1px solid $color-downy;
+  color: $color-downy;
   cursor: pointer;
   display: flex;
   font-size: 20px;
@@ -61,15 +61,15 @@
 }
 
 .controls__icon:hover {
-  background-color: rgb(47, 47, 47);
-  border: 1px solid rgb(47, 47, 47);
+  background-color: $color-gray-md;
+  border: 1px solid $color-gray-md;
 
-  /*box-shadow: inset 0 0 0 3px rgb(100, 200, 200);*/
-  color: rgb(100, 200, 200);
+  /*box-shadow: inset 0 0 0 3px $color-downy;*/
+  color: $color-downy;
 }
 
 .controls__text {
-  color: rgb(100, 200, 200);
+  color: $color-downy;
   font-size: 24px;
 }
 
@@ -82,5 +82,5 @@
 }
 
 .controls__text:hover {
-  background-color: rgb(47, 47, 47);
+  background-color: $color-gray-md;
 }

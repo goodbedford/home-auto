@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RoomForm /> RoomForm snapshot 1`] = `
+<form
+  className="form"
+  name="roomForm"
+  onSubmit={[Function]}
+>
+  <div
+    className="form__header"
+  >
+    add room
+  </div>
+  <div
+    className="form__section form__section--main"
+  >
+    <div
+      className="form_group"
+    >
+      <label
+        className="form__label"
+      >
+        <input
+          className="form__input"
+          maxLength="20"
+          minLength="2"
+          name="name"
+          onChange={[Function]}
+          placeholder="Ex. Dinning Room"
+          required={true}
+          type="text"
+        />
+      </label>
+    </div>
+  </div>
+  <div
+    className="controls controls--submit"
+  >
+    <div
+      className="controls__group"
+    >
+      <input
+        className="btn btn--submit"
+        type="submit"
+        value="Submit"
+      />
+    </div>
+  </div>
+</form>
+`;

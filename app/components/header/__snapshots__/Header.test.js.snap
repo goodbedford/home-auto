@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> Header snapshot test 1`] = `
+<header
+  className="home-auto__header"
+>
+  <span>
+    Home Automation by Goodbedford LLC
+  </span>
+  <span>
+    01111979
+  </span>
+</header>
+`;

@@ -55,7 +55,7 @@ class HomeAutomationContainer extends React.Component {
         <HomeSection>
           <PanelNav>
             <PanelControls header="Homes" match={this.props.match}  />
-            <PanelItem items={this.state.homes} match={this.props.match} />;
+            <PanelItem items={this.state.homes} match={this.props.match} />
           </PanelNav>
           <PanelDetails>
             <Route exact path="/homes" component={() => {

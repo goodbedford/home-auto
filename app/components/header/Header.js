@@ -1,6 +1,4 @@
 import React from "react";
-import {Route, Link} from "react-router-dom";
-import Button from "../button/button";
 
 const PropTypes = React.PropTypes;
 const propTypes = {

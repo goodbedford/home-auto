@@ -1,5 +1,4 @@
 import React from "react";
-import {Route, Link, Redirect} from "react-router-dom";
 import Header from "./Header";
 import httpHelper from "../../utils/httpHelper.js";
 

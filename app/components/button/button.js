@@ -1,20 +1,21 @@
 import React from "react";
-import {Route, Link} from "react-router-dom";
-
 const PropTypes = React.PropTypes;
+
 const propTypes = {
   txt: PropTypes.string.isRequired
 };
-
+const defaultProps = {
+  txt: "click"
+};
 
 
 const Button = (props) => {
 
   return (
-    <button
-      className="btn">{props.txt}</button>
+    <button className="btn">{props.txt}</button>
   );
 };
-
+Button.propTypes = propTypes;
+Button.defaultProps = defaultProps;
 
 export default Button;

@@ -3,6 +3,7 @@ import {Route, Redirect} from "react-router-dom";
 
 const PropTypes = React.PropTypes;
 const propTypes = {
+  formMsg: PropTypes.string.isRequired,
   goToId: PropTypes.string.isRequired,
   homeId: PropTypes.string.isRequired,
   isLoading: PropTypes.bool.isRequired,
@@ -13,9 +14,10 @@ const propTypes = {
 const defaultProps = {
   isLoading: false,
   isSubmitted: false,
-  name: "Unnamed Room"
+  name: "Unnamed Room",
+  formMsg: "form"
 };
-const NewRoom = (props) => {
+const RoomForm = (props) => {
   if (props.isLoading) {
     return (
       <HomeAutomation>
@@ -25,16 +27,20 @@ const NewRoom = (props) => {
     );
   }
   if(props.isSubmitted && props.goToId) {
+<<<<<<< HEAD:app/components/NewRoom/NewRoom.js
     // debugger;
     // return <Redirect to={`/homes/${props.homeId}/rooms/${props.goToId}`} />;
+=======
+    return <Redirect to={`/homes/${props.homeId}/rooms/${props.goToId}`} />;
+>>>>>>> updateRoute:app/components/roomForm/RoomForm.js
   }
   return (
     <form
-      name="newRoomForm"
+      name="roomForm"
       className="form"
       onSubmit={props.handleSubmit}
     >
-      <div className="form__header">Add a room</div>
+      <div className="form__header">{props.formMsg}</div>
       <div className="form__section form__section--main">
         <div className="form_group">
           <label className="form__label">
@@ -47,6 +53,7 @@ const NewRoom = (props) => {
               placeholder="Ex. Dinning Room"
               required
               onChange={props.handleChange}
+              value={props.nameInput}
             />
           </label>
         </div>
@@ -60,7 +67,7 @@ const NewRoom = (props) => {
   );
 };
 
-NewRoom.propTypes = propTypes;
-NewRoom.defaultProps = defaultProps;
+RoomForm.propTypes = propTypes;
+RoomForm.defaultProps = defaultProps;
 
-export default NewRoom;
+export default RoomForm;

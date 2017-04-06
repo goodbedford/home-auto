@@ -11,7 +11,11 @@ module.exports = {
   ],
   devtool: "source-map",
   devServer: {
+<<<<<<< HEAD
     contentBase: "./dist",
+=======
+    contentBase: "/",
+>>>>>>> updateRoute
     historyApiFallback: true,
   },
   stats: {
@@ -45,7 +49,7 @@ module.exports = {
             }
           }
         ]
-      }
+      },  
     ]
   },
   output: {

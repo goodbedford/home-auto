@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PanelRoomControls /> PanelRoomControls snapshot 1`] = `
+<div
+  className="room"
+  data-room-name="study room"
+>
+  <div
+    className="room__section"
+  >
+    <div
+      className="room__header"
+    >
+      study room
+    </div>
+    <div
+      className="temp temp--center"
+    >
+      <div
+        className="temp__section-flex temp__section-flex--temp-control"
+      >
+        <div
+          className="temp__section temp__section--bg-black"
+        >
+          <span
+            className="temp__text"
+          >
+            65
+          </span>
+        </div>
+        <div
+          className="btn__group btn__group--column"
+        >
+          <button
+            className="btn btn--temp-control"
+            onClick={[Function]}
+          >
+            <span
+              className="btn__icon btn__icon--plus"
+            >
+              +
+            </span>
+          </button>
+          <button
+            className="btn btn--temp-control"
+            onClick={[Function]}
+          >
+            <span
+              className="btn__icon btn__icon--minus"
+            >
+              -
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="room__controls"
+  >
+    <div
+      className="btn__section"
+    >
+      <div
+        className="btn__group-title"
+      >
+        curtains
+      </div>
+      <div
+        className="btn__group"
+      >
+        <button
+          className="btn btn--toggle btn--active"
+        >
+          open
+        </button>
+        <button
+          className="btn btn--toggle"
+        >
+          closed
+        </button>
+      </div>
+    </div>
+    <div
+      className="btn__section"
+    >
+      <div
+        className="btn__group-title"
+      >
+        lights
+      </div>
+      <div
+        className="btn__group"
+      >
+        <button
+          className="btn btn--toggle btn--active"
+        >
+          open
+        </button>
+        <button
+          className="btn btn--toggle"
+        >
+          closed
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

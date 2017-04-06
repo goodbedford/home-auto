@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PanelNav /> PanelNav snapshot 1`] = `
+<div
+  className="home-auto__panel-rooms home-auto__panel-rooms--column"
+>
+  <div
+    className="home-auto__section-group"
+  />
+</div>
+`;

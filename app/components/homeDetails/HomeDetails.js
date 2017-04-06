@@ -9,7 +9,7 @@ import PanelDetails from "../panelDetails/PanelDetails.js";
 import PanelControls from "../panelControls/PanelControls.js";
 import PanelBlock from "../panelBlock/PanelBlock.js";
 import RoomDetails from "../roomDetails/RoomDetails.js";
-import NewRoom from "../newRoom/NewRoom.js";
+import RoomForm from "../roomForm/RoomForm.js";
 import Loading from "../loading/Loading.js";
 import httpHelper from "../../utils/httpHelper.js";
 
@@ -23,8 +23,13 @@ class HomeDetails extends React.Component {
     super(props);
     this.state = {
       isLoading: true,
-      rooms: {}
+      isSubmitted: false,
+      rooms: [],
+      goToId: "",
+      nameInput: ""
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount () {
     let homeId = this.props.match.params.homeId;
@@ -40,6 +45,22 @@ class HomeDetails extends React.Component {
         console.warn("Error with getHomes", error);
       });
   }
+  handleChange (e) {
+    e.preventDefault();
+    this.setState({nameInput: e.target.value});
+  }
+  handleSubmit (e) {
+    e.preventDefault();
+    const homeId = this.props.match.params.homeId;
+    const name = this.state.nameInput;
+    httpHelper.createRoom(homeId, {name:name})
+      .then(newRoom => {
+        this.setState({isSubmitted: true, goToId: newRoom._id});
+      })
+      .catch(error => {
+        console.log("Error with submit new room", error);
+      });
+  }
   render() {
     if (this.state.isLoading) {
       return (
@@ -49,6 +70,9 @@ class HomeDetails extends React.Component {
         </HomeAutomation>
       );
     }
+    if(this.props.match.roomId) {
+      return <Redirect to={this.props.match.roomId} />;
+    }
 
     return (
       <HomeAutomation>
@@ -56,25 +80,30 @@ class HomeDetails extends React.Component {
         <HomeSection>
           <PanelNav>
             <PanelControls header="Rooms" match={this.props.match}  />
-            <PanelItem items={this.state.rooms} loc={this.props.location} match={this.props.match} />;
+            <PanelItem items={this.state.rooms} loc={this.props.location} match={this.props.match} />
           </PanelNav>
           <PanelDetails>
             <Switch>
-              <Route path="/homes/:homeId/rooms" component={() => {
+              <Route exact path="/homes/:homeId/rooms" render={() => {
                 return (
                   <PanelBlock msg="Select a Room" />
                 );
               }}/>
-              {/* <Route exact path="/homes/:homeId/rooms/new" component={NewRoom} /> */}
+              <Route exact path="/homes/:homeId/rooms/new" render={() => {
+                return (
+                  <RoomForm
+                    formMsg="Add Room"
+                    goToId={this.state.goToId}
+                    homeId={this.props.match.params.homeId}
+                    isLoading={this.state.isLoading}
+                    isSubmitted={this.state.isSubmitted}
+                    handleChange={this.handleChange}
+                    handleSubmit={this.handleSubmit}
+                    nameInput={this.state.nameInput}
+                  />
+                );
+              }}/>
             </Switch>
-
-            {/* <Route exact path="/homes/:homeId/rooms/:roomId" component={(props) => {
-              let roomId = props.match.params.roomId;
-              let room = this.state.rooms.filter(room => room._id === roomId)[0];
-              return (
-                <RoomDetails room={room} match={this.props.match} />
-              );
-            }}/> */}
           </PanelDetails>
         </HomeSection>
       </HomeAutomation>

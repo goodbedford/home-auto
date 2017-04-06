@@ -3,7 +3,7 @@
 .btn {
   align-items: center;
   background-color: $color-black-pure;
-  border: 2px solid $color-downy;
+  border: 1px solid $color-downy;
   color: $color-downy;
   cursor: pointer;
   display: flex;
@@ -15,7 +15,7 @@
 
 .btn:hover {
   background-color: $color-downy-hover;
-  border: 2px solid $color-downy-hover;
+  border: 1px solid $color-downy-hover;
   color: black;
 }
 
@@ -48,7 +48,7 @@
 
 .btn--toggle {
   background-color: $color-gray-md;
-  border: 2px solid black;
+  border: 1px solid black;
   color: $color-gray-lt;
   flex: 1;
   min-height: 50px;
@@ -57,7 +57,7 @@
 }
 
 .btn--toggle:hover {
-  border: 2px solid black;
+  border: 1px solid black;
 
   // color: $color-gray-lt;
   // flex: 1;

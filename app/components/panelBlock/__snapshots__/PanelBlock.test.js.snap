@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PanelBlock /> PanelBlock snapshot 1`] = `
+<div
+  className="home-auto__panel-block"
+>
+  <span
+    className="txt txt-lg"
+  >
+    hello
+  </span>
+</div>
+`;

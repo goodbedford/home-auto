@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PanelItem /> PanelItem snapshot 1`] = `
+<div
+  className="home-auto__section-rooms home-auto__section-rooms--bottom-border"
+>
+  <NavLink
+    activeClassName="home-auto__panel-item--active"
+    className="home-auto__panel-item"
+    exact={true}
+    to="/homes/123/rooms"
+  >
+    <span>
+      one room
+    </span>
+  </NavLink>
+  <NavLink
+    activeClassName="home-auto__panel-item--active"
+    className="home-auto__panel-item"
+    exact={true}
+    to="/homes/456/rooms"
+  >
+    <span>
+      2nd room
+    </span>
+  </NavLink>
+</div>
+`;
+
+exports[`<PanelItem /> PanelItem snapshot with params.homeId 1`] = `
+<div
+  className="home-auto__section-rooms home-auto__section-rooms--bottom-border"
+>
+  <NavLink
+    activeClassName="home-auto__panel-item--active"
+    className="home-auto__panel-item"
+    exact={true}
+    to={
+      Object {
+        "pathname": "/homes/12/rooms/123",
+      }
+    }
+  >
+    <span>
+      one room
+    </span>
+  </NavLink>
+  <NavLink
+    activeClassName="home-auto__panel-item--active"
+    className="home-auto__panel-item"
+    exact={true}
+    to={
+      Object {
+        "pathname": "/homes/12/rooms/456",
+      }
+    }
+  >
+    <span>
+      2nd room
+    </span>
+  </NavLink>
+</div>
+`;
+
+exports[`<PanelItem /> PanelItem snapshot with params.roomId 1`] = `
+<div
+  className="home-auto__section-rooms home-auto__section-rooms--bottom-border"
+>
+  <div
+    className="home-auto__panel-group"
+  >
+    <NavLink
+      activeClassName="home-auto__panel-item--active"
+      className="home-auto__panel-item"
+      exact={true}
+      to={
+        Object {
+          "pathname": "/homes/12/rooms/123",
+        }
+      }
+    >
+      <span>
+        one room
+      </span>
+    </NavLink>
+    <NavLink
+      activeClassName="home-auto__panel-item--active"
+      className="home-auto__panel-item home-auto__panel-item--edit-btn"
+      to="/homes/12/rooms/123/edit"
+    >
+      <span>
+        <i
+          aria-hidden="true"
+          className="fa fa-pencil"
+        />
+      </span>
+    </NavLink>
+    <span
+      className="home-auto__panel-item home-auto__panel-item--edit-btn"
+      onClick={[Function]}
+    >
+      <i
+        aria-hidden="true"
+        className="fa fa-trash"
+      />
+    </span>
+  </div>
+  <div
+    className="home-auto__panel-group"
+  >
+    <NavLink
+      activeClassName="home-auto__panel-item--active"
+      className="home-auto__panel-item"
+      exact={true}
+      to={
+        Object {
+          "pathname": "/homes/12/rooms/456",
+        }
+      }
+    >
+      <span>
+        2nd room
+      </span>
+    </NavLink>
+    <NavLink
+      activeClassName="home-auto__panel-item--active"
+      className="home-auto__panel-item home-auto__panel-item--edit-btn"
+      to="/homes/12/rooms/456/edit"
+    >
+      <span>
+        <i
+          aria-hidden="true"
+          className="fa fa-pencil"
+        />
+      </span>
+    </NavLink>
+    <span
+      className="home-auto__panel-item home-auto__panel-item--edit-btn"
+      onClick={[Function]}
+    >
+      <i
+        aria-hidden="true"
+        className="fa fa-trash"
+      />
+    </span>
+  </div>
+</div>
+`;
