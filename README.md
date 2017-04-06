@@ -7,7 +7,7 @@
 - Backend Repo: https://github.com/goodbedford/home-data
 - Stack: HTML, SASS, Javascript, ES2015,  Node, React, React-Router-V4, Babel, Webpack-2, Jest, Enzyme, BEM, Git, RWD
 
-- Ice bucket: I would like to do add Auth, and ability to refresh.
+- Ice bucket: I would like to add Auth, and ability to refresh.
 
 ##### Contact
 - Email: goodbedford@gmail.com
