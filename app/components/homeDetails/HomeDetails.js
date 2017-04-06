@@ -8,7 +8,6 @@ import PanelNav from "../panelNav/PanelNav.js";
 import PanelDetails from "../panelDetails/PanelDetails.js";
 import PanelControls from "../panelControls/PanelControls.js";
 import PanelBlock from "../panelBlock/PanelBlock.js";
-import RoomDetails from "../roomDetails/RoomDetails.js";
 import RoomForm from "../roomForm/RoomForm.js";
 import Loading from "../loading/Loading.js";
 import httpHelper from "../../utils/httpHelper.js";

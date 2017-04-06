@@ -30,7 +30,7 @@ class HomeAutomationContainer extends React.Component {
       .then(homes => {
         // console.log("homes", JSON.stringify(homes,null,2));
         this.setState({
-          isLoading:false,
+          isLoading: false,
           homes: homes
         });
       })
