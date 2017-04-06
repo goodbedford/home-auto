@@ -5,7 +5,7 @@ exports[`<PanelControls /> PanelControls snapshot 1`] = `
   className="controls controls-flex controls-flex--center-start"
 >
   <div
-    className="controls__group controls__group--space-between controls__group--tall"
+    className="controls__group controls__group--tall controls__group--space-between"
   >
     <NavLink
       activeClassName="active"
