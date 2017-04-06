@@ -9,7 +9,7 @@ import PanelDetails from "../panelDetails/PanelDetails.js";
 import PanelControls from "../panelControls/PanelControls.js";
 import PanelRoomControls from "../panelRoomControls/PanelRoomControls.js";
 import PanelBlock from "../panelBlock/PanelBlock.js";
-import NewRoom from "../newRoom/NewRoom.js";
+import RoomForm from "../roomForm/RoomForm.js";
 import Loading from "../loading/Loading.js";
 import httpHelper from "../../utils/httpHelper.js";
 
@@ -23,14 +23,15 @@ class RoomDetails extends React.Component {
     super(props);
     // const rooms = this.props.location.state.rooms;
     this.state = {
-      goToId: "",
       isLoading: false,
       isSubmitted: false,
+      goToId: "",
       rooms: [],
       room: {},
       nameInput: "",
     };
     this.handleGetRoomClick = this.handleGetRoomClick.bind(this);
+    this.handleDeleteRoom = this.handleDeleteRoom.bind(this);
     this.handleTempIncrease = this.handleTempIncrease.bind(this);
     this.handleTempDecrease = this.handleTempDecrease.bind(this);
     this.toggleDevice = this.toggleDevice.bind(this);
@@ -38,9 +39,10 @@ class RoomDetails extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount () {
-    console.log("componentDidMount", new Date());
+    // console.log("componentDidMount", new Date());
     let homeId = this.props.match.params.homeId;
     let roomId = this.props.match.params.roomId;
+    this.startLoading();
     httpHelper.getRooms(homeId)
       .then(rooms => {
         this.setState({
@@ -65,20 +67,20 @@ class RoomDetails extends React.Component {
       });
   }
   shouldComponentUpdate () {
-    console.log("shouldComponentUpdate",this.props.match.params.roomId, new Date());
+    // console.log("shouldComponentUpdate",this.props.match.params.roomId, new Date());
     return true;
   }
   componentDidUpdate () {
-    console.log("componentDidUpdate", new Date());
+    // console.log("componentDidUpdate", new Date());
     if(this.state.isSubmitted && this.state.goToId) {
       this.setState({isSubmitted: false, gotToId: "" });
     }
   }
   componentWillReceiveProps () {
-    console.log("componentWillReceiveProps", new Date());
+    // console.log("componentWillReceiveProps", new Date());
   }
   handleGetRoomClick (homeIdParam, roomIdParam) {
-    console.log("handleGetRoomClick", new Date());
+    // console.log("handleGetRoomClick", new Date());
     return () => {
       let homeId = homeIdParam;
       let roomId = roomIdParam;
@@ -186,7 +188,22 @@ class RoomDetails extends React.Component {
         console.log("Error with updateRoom", error);
       });
   }
+  handleDeleteRoom () {
+    const homeId = this.props.match.params.homeId;
+    const name = this.state.nameInput;
+    const roomId = this.props.match.params.roomId;
+    httpHelper.deleteRoom(homeId, roomId)
+      .then(home => {
+        this.setState({isDeleted: true});
+      })
+      .catch(error => {
+        console.log("Error with delete", error);
+      });
 
+  }
+  startLoading() {
+    this.setState({isLoading: true});
+  }
   render() {
     if (this.state.isLoading) {
       return (
@@ -207,16 +224,18 @@ class RoomDetails extends React.Component {
               match={this.props.match}
             />
             <PanelItem
+              isDeleted={this.state.isDeleted}
               items={this.state.rooms}
               match={this.props.match}
               handleGetRoomClick={this.handleGetRoomClick}
-            />;
+              handleDeleteRoom={this.handleDeleteRoom}
+            />
           </PanelNav>
           <PanelDetails>
             <Switch>
             <Route exact path="/homes/:homeId/rooms/:roomId/edit" render={() => {
               return (
-                <NewRoom
+                <RoomForm
                   formMsg="Edit Room"
                   nameInput={this.state.nameInput}
                   goToId={this.state.goToId}

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Welcome /> Welcome snapshot 1`] = `
+<div
+  className="welcome"
+>
+  <h1
+    className="txt txt--header"
+  >
+    Home Automation
+  </h1>
+  <h3
+    className="txt txt--sub-header"
+  >
+    welcome
+  </h3>
+  <div>
+    <Link
+      replace={false}
+      to="/homes"
+    >
+      <Button
+        txt="homes"
+      />
+    </Link>
+  </div>
+</div>
+`;

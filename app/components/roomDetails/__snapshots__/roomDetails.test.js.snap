@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RoomDetails /> RoomDetails snapshot 1`] = `
+<HomeAutomation>
+  <HeaderContainer />
+  <HomeSection>
+    <PanelNav>
+      <PanelControls
+        header="Rooms"
+        match={
+          Object {
+            "params": Object {},
+          }
+        }
+      />
+      <PanelItem
+        handleDeleteRoom={[Function]}
+        handleGetRoomClick={[Function]}
+        isDeleted={false}
+        items={Array []}
+        match={
+          Object {
+            "params": Object {},
+          }
+        }
+      />
+    </PanelNav>
+    <PanelDetails>
+      <Switch>
+        <Route
+          exact={true}
+          path="/homes/:homeId/rooms/:roomId/edit"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          path="/homes/:homeId/rooms/:roomId"
+          render={[Function]}
+        />
+      </Switch>
+    </PanelDetails>
+  </HomeSection>
+</HomeAutomation>
+`;

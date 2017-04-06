@@ -9,7 +9,7 @@ import PanelDetails from "../panelDetails/PanelDetails.js";
 import PanelControls from "../panelControls/PanelControls.js";
 import PanelBlock from "../panelBlock/PanelBlock.js";
 import RoomDetails from "../roomDetails/RoomDetails.js";
-import NewRoom from "../newRoom/NewRoom.js";
+import RoomForm from "../roomForm/RoomForm.js";
 import Loading from "../loading/Loading.js";
 import httpHelper from "../../utils/httpHelper.js";
 
@@ -23,8 +23,8 @@ class HomeDetails extends React.Component {
     super(props);
     this.state = {
       isLoading: true,
-      rooms: {},
       isSubmitted: false,
+      rooms: [],
       goToId: "",
       nameInput: ""
     };
@@ -71,7 +71,7 @@ class HomeDetails extends React.Component {
       );
     }
     if(this.props.match.roomId) {
-      return <Redirect to={this.props.match.roomId} />
+      return <Redirect to={this.props.match.roomId} />;
     }
 
     return (
@@ -80,7 +80,7 @@ class HomeDetails extends React.Component {
         <HomeSection>
           <PanelNav>
             <PanelControls header="Rooms" match={this.props.match}  />
-            <PanelItem items={this.state.rooms} loc={this.props.location} match={this.props.match} />;
+            <PanelItem items={this.state.rooms} loc={this.props.location} match={this.props.match} />
           </PanelNav>
           <PanelDetails>
             <Switch>
@@ -91,7 +91,7 @@ class HomeDetails extends React.Component {
               }}/>
               <Route exact path="/homes/:homeId/rooms/new" render={() => {
                 return (
-                  <NewRoom
+                  <RoomForm
                     formMsg="Add Room"
                     goToId={this.state.goToId}
                     homeId={this.props.match.params.homeId}

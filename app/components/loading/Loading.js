@@ -22,7 +22,7 @@ const propTypes = {
 
 
 const defaultProps = {
-  loadingMsg: "Loading",
+  loadingMsg: "loading",
   styles: "loading loading--block-md"
 };
 
@@ -36,7 +36,6 @@ class Loading extends React.Component {
     };
   }
   componentDidMount() {
-    // debugger
     this.setState({isMounted:true});
 
     if(this.state.isMounted) {

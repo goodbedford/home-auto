@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HomeDetails /> HomeDetails snapshot 1`] = `
+<HomeAutomation>
+  <HeaderContainer />
+  <Loading
+    loadingMsg="loading"
+    styles="loading loading--block-md"
+  />
+</HomeAutomation>
+`;

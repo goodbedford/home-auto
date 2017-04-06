@@ -1,9 +1,14 @@
 import React from "react";
 import {Route, Link} from "react-router-dom";
-import Button from "../button/button";
+import Button from "../button/Button";
+const PropTypes = React.PropTypes;
 
-
-
+const propTypes = {
+  msg: PropTypes.string.isRequired
+};
+const defaultProps = {
+  msg: "welcome"
+};
 const Welcome = (props) => {
 
   return (
@@ -18,6 +23,7 @@ const Welcome = (props) => {
     </div>
   );
 };
-
+Welcome.propTypes = propTypes;
+Welcome.defaultProps = defaultProps;
 
 export default Welcome;

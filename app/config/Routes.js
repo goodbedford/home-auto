@@ -11,7 +11,6 @@ import WelcomeContainer from "../components/welcome/WelcomeContainer";
 import HomeAutomationContainer from "../components/homeAutomation/HomeAutomationContainer";
 import HomeDetails from "../components/homeDetails/HomeDetails";
 import RoomDetails from "../components/roomDetails/RoomDetails";
-import NewRoomContainer from "../components/newRoom/NewRoomContainer";
 // import MainRoute from "../components/MainRoute";
 // import Home from "../components/Home";
 // import NewsRoute from "../components/NewsRoute";
@@ -30,7 +29,6 @@ const Routes =  (
         <Route exact path="/homes/:homeId/rooms/:roomId/edit" component={RoomDetails} />
         <Route exact path="/homes/:homeId/rooms/new" component={HomeDetails} />
         <Route exact path="/homes/:homeId/rooms/:roomId" component={RoomDetails} />
-        {/* <Route exact path="/homes/:homeId/rooms/new" component={NewRoomContainer} /> */}
       </Switch>
     </div>
   </Router>

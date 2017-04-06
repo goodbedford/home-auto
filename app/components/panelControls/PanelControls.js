@@ -16,7 +16,7 @@ const PanelControls = (props) => {
         </NavLink>
         <span className="controls__text controls__text-btn">{props.header}</span>
         {/* room control btns */}
-        {this.children}
+        {props.children}
         <div className="block-tall">
           <span className="block-controls"></span>
         </div>

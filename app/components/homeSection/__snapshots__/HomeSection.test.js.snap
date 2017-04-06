@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HomeSection /> HomeSection snapshot 1`] = `
+<div
+  className="home-auto__section"
+/>
+`;
