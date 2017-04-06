@@ -13776,7 +13776,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // import ResultsContainer from "../containers/ResultsContainer";
 var Routes = _react2.default.createElement(
   _reactRouterDom.BrowserRouter,
-  null,
+  { basename: "/home-auto/" },
   _react2.default.createElement(
     "div",
     null,

@@ -19,7 +19,7 @@ import RoomDetails from "../components/roomDetails/RoomDetails";
 // import ConfirmBattleContainer from "../containers/ConfirmBattleContainer";
 // import ResultsContainer from "../containers/ResultsContainer";
 const Routes =  (
-  <Router>
+  <Router basename="/home-auto/">
     <div>
       {/* <Nav /> */}
         <Route exact path="/" component={WelcomeContainer} />
