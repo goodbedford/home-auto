@@ -1,3 +1,4 @@
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: __dirname + "/app/index.html",
@@ -46,11 +47,17 @@ module.exports = {
           }
         ]
       },
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          use: "css-loader"
+        })
+      }
     ]
   },
   output: {
     filename: "bundle.js",
     path: __dirname + "/dist"
   },
-  plugins: [HtmlWebpackPluginConfig]
+  plugins: [HtmlWebpackPluginConfig, new ExtractTextPlugin("styles.css")]
 };

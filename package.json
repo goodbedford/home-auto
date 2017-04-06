@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test jest",
+    "test": "NODE_ENV=test jest --verbose --watch",
     "cover": "NODE_ENV=test jest --coverage",
     "prod": "webpack -p",
-    "start": "webpack-dev-server",
-    "test": "NODE_ENV=test jest --verbose --watch"
+    "start": "webpack-dev-server"
   },
   "author": "goodbedford <bedford@goodbedford.com>",
   "license": "ISC",
@@ -27,6 +26,7 @@
     "eslint-plugin-promise": "2.0.1",
     "eslint-plugin-react": "6.3.0",
     "eslint-plugin-standard": "^2.1.1",
+    "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",
     "font-awesome-sass-loader": "^2.0.1",
     "html-webpack-plugin": "^2.28.0",
