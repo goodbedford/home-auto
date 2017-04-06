@@ -5671,7 +5671,7 @@ var PanelControls = function PanelControls(props) {
     { className: "controls controls-flex controls-flex--center-start" },
     _react2.default.createElement(
       "div",
-      { className: "controls__group controls__group--tall" + (undefined.props.match.params.homeId ? "controls__group--space-between" : "controls__group--center-center") },
+      { className: "controls__group controls__group--tall " + (props.match.params.homeId ? "controls__group--space-between" : "controls__group--center-center") },
       button,
       _react2.default.createElement(
         "span",
