@@ -12,7 +12,7 @@ module.exports = {
   ],
   devtool: "source-map",
   devServer: {
-    contentBase: "./dist/",
+    contentBase: "./docs/",
     historyApiFallback: true,
   },
   stats: {
@@ -51,7 +51,7 @@ module.exports = {
   },
   output: {
     filename: "bundle.js",
-    path: __dirname + "/dist"
+    path: __dirname + "/docs"
   },
   plugins: [HtmlWebpackPluginConfig, new ExtractTextPlugin("styles.css")]
 };
